@@ -89,9 +89,9 @@ def days_to_birthday_handler(var):
 def show_contacts_handler():
     for name, record in CONTACTS.items():
         if record.birthday != "":
-            print(f"{name}: phone {[phone.value for phone in record.phones]}, birthday {record.birthday}")
+            print("{:<10}{:^35}{:>10}".format(name, " ".join([phone.value for phone in record.phones]), record.birthday))
         else:
-            print(f"{name}: phone {[phone.value for phone in record.phones]}")
+            print("{:<10}{:^35}{:>10}".format(name, " ".join([phone.value for phone in record.phones]), "-"))
 
 
 def iteration():
