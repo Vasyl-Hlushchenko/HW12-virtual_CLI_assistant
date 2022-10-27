@@ -23,9 +23,9 @@ class AddressBook(UserDict):
         while len(self.data) >= AddressBook.current_index:
             for name in names[AddressBook.current_index: min(len(self.data), AddressBook.current_index + AddressBook.N)]:
                 if self.data[name].birthday != "":
-                    show_list.append("{:<10}{:^35}{:>10}".format(self.data[name].name.value, " ".join([phone.value for phone in self.data[name].phones]), self.data[name].birthday))
+                    show_list.append("{:<10}{:^35}{:>10}".format((self.data[name].name.value).capitalize(), " ".join([phone.value for phone in self.data[name].phones]), self.data[name].birthday))
                 else:
-                    show_list.append("{:<10}{:^35}{:>10}".format(self.data[name].name.value, " ".join([phone.value for phone in self.data[name].phones]), "-"))
+                    show_list.append("{:<10}{:^35}{:>10}".format((self.data[name].name.value).capitalize(), " ".join([phone.value for phone in self.data[name].phones]), "-"))
             yield show_list
             AddressBook.current_index += AddressBook.N
             show_list = []

@@ -42,7 +42,7 @@ def add_contact_handler(var):
 def find_contact_handler(var):
     for name, record in CONTACTS.items():
         if name == var.split()[1]:
-            print(f"{name}: {[phone.value for phone in record.phones]}")
+            print(f"{name.capitalize()}: {[phone.value for phone in record.phones]}")
 
 
 @input_error
@@ -89,9 +89,9 @@ def days_to_birthday_handler(var):
 def show_contacts_handler():
     for name, record in CONTACTS.items():
         if record.birthday != "":
-            print("{:<10}{:^35}{:>10}".format(name, " ".join([phone.value for phone in record.phones]), record.birthday))
+            print("{:<10}{:^35}{:>10}".format(name.capitalize(), " ".join([phone.value for phone in record.phones]), record.birthday))
         else:
-            print("{:<10}{:^35}{:>10}".format(name, " ".join([phone.value for phone in record.phones]), "-"))
+            print("{:<10}{:^35}{:>10}".format(name.capitalize(), " ".join([phone.value for phone in record.phones]), "-"))
 
 
 def iteration():
@@ -103,10 +103,10 @@ def find(var):
     show_list = []
     for name, record in CONTACTS.items():
         if re.search(var, name):
-            show_list.append(f"{name}: {[phone.value for phone in record.phones]}")
+            show_list.append(f"{name.capitalize()}: {[phone.value for phone in record.phones]}")
         for phone in record.phones:
             if re.search(var, phone.value):
-                show_list.append(f"{name}: {[phone.value for phone in record.phones]}")
+                show_list.append(f"{name.capitalize()}: {[phone.value for phone in record.phones]}")
     if show_list == []:
         raise Exception
     print(f"You are looking for '{var}', the most suitable result is: {show_list}")
