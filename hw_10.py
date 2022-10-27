@@ -4,15 +4,15 @@ import pickle
 
 
 class AddressBook(UserDict):
+    current_index = 0
+    N = 2
+
     def __init__(self):
         try:
             with open("save_file.txt", "rb") as file:
                 self.data = pickle.load(file)
         except:
             self.data = {}
-
-    current_index = 0
-    N = 2
     
     def add_record(self, record):
         self.data[record.name.value] = record
