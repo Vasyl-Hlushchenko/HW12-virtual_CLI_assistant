@@ -137,15 +137,14 @@ def main():
             find_contact_handler(var)
         elif var.startswith('delete'):
             delete_contact_handler(var)
-        elif var not in COMMANDS:
+        elif var in COMMANDS:
+            COMMANDS[var]()
+        else:          
             try:
                 find(var)
             except:
                 print("Wrong command!")
             continue
-        else:
-            COMMANDS[var]()
-
 
 
 
